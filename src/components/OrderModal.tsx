@@ -80,11 +80,11 @@ export default function OrderModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-2xl border border-sky-100 overflow-hidden">
+      <div className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-sky-100 overflow-hidden">
         {/* Header */}
         <div className="px-6 py-4 border-b border-slate-100 flex items-center justify-between bg-slate-50/60">
           <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-xl bg-sky-500 text-white flex items-center justify-center">
+            <div className="w-8 h-8 rounded-lg bg-sky-500 text-white flex items-center justify-center">
               <ShoppingCart className="w-4 h-4" />
             </div>
             <div>
@@ -94,7 +94,7 @@ export default function OrderModal({
           </div>
           <button
             onClick={onClose}
-            className="p-1 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+            className="p-1 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
@@ -103,14 +103,14 @@ export default function OrderModal({
         {/* Content Form */}
         <form onSubmit={handleSubmitOrder} className="p-6 space-y-4">
           {error && (
-            <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs text-red-600 flex items-center gap-2">
+            <div className="p-3 bg-red-50 border border-red-200 rounded-md text-xs text-red-600 flex items-center gap-2">
               <AlertCircle className="w-4 h-4 flex-shrink-0" />
               <span>{error}</span>
             </div>
           )}
 
           {/* Product Summary Row */}
-          <div className="p-3.5 bg-sky-50/50 rounded-2xl border border-sky-100 flex items-start justify-between">
+          <div className="p-3.5 bg-sky-50/50 rounded-lg border border-sky-100 flex items-start justify-between">
             <div>
               <span className="text-[10px] font-semibold text-sky-700 bg-sky-100/60 px-2 py-0.5 rounded">
                 {product.category}
@@ -137,7 +137,7 @@ export default function OrderModal({
               <button
                 type="button"
                 onClick={() => setQuantity((q) => Math.max(product.moq, q - 1))}
-                className="w-9 h-9 rounded-xl border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-md border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center justify-center transition-colors"
               >
                 -
               </button>
@@ -146,12 +146,12 @@ export default function OrderModal({
                 min={product.moq}
                 value={quantity}
                 onChange={(e) => setQuantity(Math.max(product.moq, parseInt(e.target.value) || product.moq))}
-                className="w-24 text-center py-2 text-sm font-bold rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500"
+                className="w-24 text-center py-2 text-sm font-bold rounded-md border border-slate-200 focus:outline-none focus:border-sky-500"
               />
               <button
                 type="button"
                 onClick={() => setQuantity((q) => q + 1)}
-                className="w-9 h-9 rounded-xl border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-md border border-slate-200 text-slate-700 font-bold hover:bg-slate-100 flex items-center justify-center transition-colors"
               >
                 +
               </button>
@@ -170,7 +170,7 @@ export default function OrderModal({
               type="text"
               value={deliveryAddress}
               onChange={(e) => setDeliveryAddress(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
+              className="w-full px-3.5 py-2 text-xs rounded-md border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
             />
           </div>
 
@@ -184,12 +184,12 @@ export default function OrderModal({
               placeholder="e.g. Unload at Loading Dock B, contact science department"
               value={deliveryNotes}
               onChange={(e) => setDeliveryNotes(e.target.value)}
-              className="w-full px-3.5 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
+              className="w-full px-3.5 py-2 text-xs rounded-md border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
             />
           </div>
 
           {/* Cost Breakdown */}
-          <div className="p-3.5 bg-slate-50 rounded-2xl border border-slate-200/80 space-y-1.5 text-xs">
+          <div className="p-3.5 bg-slate-50 rounded-lg border border-slate-200/80 space-y-1.5 text-xs">
             <div className="flex justify-between text-slate-600">
               <span>Subtotal ({quantity} {product.unit}s)</span>
               <span>${summary.subtotal.toFixed(2)}</span>
@@ -215,14 +215,14 @@ export default function OrderModal({
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 py-2.5 px-4 rounded-xl border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors"
+              className="flex-1 py-2.5 px-4 rounded-md border border-slate-200 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors"
             >
               Cancel
             </button>
             <button
               type="submit"
               disabled={isSubmitting}
-              className="flex-1 py-2.5 px-4 rounded-xl bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-semibold shadow-md shadow-sky-500/20 hover:from-sky-600 hover:to-blue-700 transition-all flex items-center justify-center gap-1.5"
+              className="flex-1 py-2.5 px-4 rounded-md bg-gradient-to-r from-sky-500 to-blue-600 text-white text-xs font-semibold shadow-md shadow-sky-500/20 hover:from-sky-600 hover:to-blue-700 transition-all flex items-center justify-center gap-1.5"
             >
               <CheckCircle2 className="w-4 h-4" />
               <span>{isSubmitting ? 'Placing Order...' : 'Submit Purchase Order'}</span>

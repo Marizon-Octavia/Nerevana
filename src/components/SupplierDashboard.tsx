@@ -118,10 +118,10 @@ export default function SupplierDashboard({
     <div className="w-full space-y-5">
       {/* KPI Stats Bar */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-3">
-        <div className="bg-white p-3.5 rounded-2xl border border-sky-100 shadow-xs">
+        <div className="bg-white p-3.5 rounded-lg border border-sky-100 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-500">Active Catalog</span>
-            <div className="p-1.5 rounded-xl bg-sky-50 text-sky-600">
+            <div className="p-1.5 rounded-md bg-sky-50 text-sky-600">
               <Package className="w-4 h-4" />
             </div>
           </div>
@@ -129,10 +129,10 @@ export default function SupplierDashboard({
           <span className="text-[10px] text-slate-400">Available to schools</span>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-sky-100 shadow-xs">
+        <div className="bg-white p-3.5 rounded-lg border border-sky-100 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-500">Pending POs</span>
-            <div className="p-1.5 rounded-xl bg-amber-50 text-amber-600">
+            <div className="p-1.5 rounded-md bg-amber-50 text-amber-600">
               <Clock className="w-4 h-4" />
             </div>
           </div>
@@ -140,10 +140,10 @@ export default function SupplierDashboard({
           <span className="text-[10px] text-amber-600 font-medium">Requires supplier confirmation</span>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-sky-100 shadow-xs">
+        <div className="bg-white p-3.5 rounded-lg border border-sky-100 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-500">In Transit</span>
-            <div className="p-1.5 rounded-xl bg-indigo-50 text-indigo-600">
+            <div className="p-1.5 rounded-md bg-indigo-50 text-indigo-600">
               <Truck className="w-4 h-4" />
             </div>
           </div>
@@ -151,10 +151,10 @@ export default function SupplierDashboard({
           <span className="text-[10px] text-slate-400">En route to campuses</span>
         </div>
 
-        <div className="bg-white p-3.5 rounded-2xl border border-sky-100 shadow-xs">
+        <div className="bg-white p-3.5 rounded-lg border border-sky-100 shadow-xs">
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-semibold text-slate-500">Total Volume</span>
-            <div className="p-1.5 rounded-xl bg-emerald-50 text-emerald-600">
+            <div className="p-1.5 rounded-md bg-emerald-50 text-emerald-600">
               <DollarSign className="w-4 h-4" />
             </div>
           </div>
@@ -170,7 +170,7 @@ export default function SupplierDashboard({
         <div className="flex items-center gap-2">
           <button
             onClick={() => setActiveTab('orders')}
-            className={`py-2 px-3.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+            className={`py-2 px-3.5 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'orders'
                 ? 'bg-sky-600 text-white shadow-xs'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
@@ -187,7 +187,7 @@ export default function SupplierDashboard({
 
           <button
             onClick={() => setActiveTab('catalog')}
-            className={`py-2 px-3.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+            className={`py-2 px-3.5 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'catalog'
                 ? 'bg-sky-600 text-white shadow-xs'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
@@ -199,7 +199,7 @@ export default function SupplierDashboard({
 
           <button
             onClick={() => setActiveTab('location')}
-            className={`py-2 px-3.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+            className={`py-2 px-3.5 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
               activeTab === 'location'
                 ? 'bg-sky-600 text-white shadow-xs'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80'
@@ -214,7 +214,7 @@ export default function SupplierDashboard({
           <button
             type="button"
             onClick={() => setShowAddModal(true)}
-            className="py-2 px-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-all flex items-center gap-1"
+            className="py-2 px-3 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-600 hover:to-blue-700 text-white rounded-md text-xs font-semibold shadow-xs transition-all flex items-center gap-1"
           >
             <Plus className="w-3.5 h-3.5" />
             <span>Add Item</span>
@@ -235,7 +235,7 @@ export default function SupplierDashboard({
       {activeTab === 'catalog' && (
         <div className="space-y-3">
           {supplierProducts.length === 0 ? (
-            <div className="bg-white p-8 rounded-2xl border border-slate-200 text-center">
+            <div className="bg-white p-8 rounded-lg border border-slate-200 text-center">
               <Package className="w-8 h-8 text-slate-300 mx-auto mb-2" />
               <h4 className="text-sm font-semibold text-slate-700">No items listed yet</h4>
               <p className="text-xs text-slate-400 mt-1 mb-4">
@@ -243,14 +243,14 @@ export default function SupplierDashboard({
               </p>
               <button
                 onClick={() => setShowAddModal(true)}
-                className="py-2 px-4 bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold rounded-xl inline-flex items-center gap-1.5"
+                className="py-2 px-4 bg-sky-600 hover:bg-sky-700 text-white text-xs font-semibold rounded-md inline-flex items-center gap-1.5"
               >
                 <Plus className="w-3.5 h-3.5" />
                 <span>Add Your First Item</span>
               </button>
             </div>
           ) : (
-            <div className="bg-white rounded-2xl border border-sky-100 shadow-xs overflow-hidden">
+            <div className="bg-white rounded-lg border border-sky-100 shadow-xs overflow-hidden">
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse">
                   <thead>
@@ -332,14 +332,14 @@ export default function SupplierDashboard({
                                     setEditPrice(p.price);
                                     setEditStock(p.inStock);
                                   }}
-                                  className="p-1.5 rounded-lg text-slate-400 hover:text-sky-600 hover:bg-sky-50 transition-colors"
+                                  className="p-1.5 rounded-md text-slate-400 hover:text-sky-600 hover:bg-sky-50 transition-colors"
                                   title="Quick Edit Price & Stock"
                                 >
                                   <Edit2 className="w-3.5 h-3.5" />
                                 </button>
                                 <button
                                   onClick={() => onDeleteProduct(p.id)}
-                                  className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
+                                  className="p-1.5 rounded-md text-slate-400 hover:text-rose-600 hover:bg-rose-50 transition-colors"
                                   title="Delete Item"
                                 >
                                   <Trash2 className="w-3.5 h-3.5" />
@@ -360,7 +360,7 @@ export default function SupplierDashboard({
 
       {/* Tab 3: Depot Location Map */}
       {activeTab === 'location' && (
-        <div className="bg-white p-4 rounded-2xl border border-sky-100 shadow-xs space-y-3">
+        <div className="bg-white p-4 rounded-lg border border-sky-100 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
             <div>
               <h4 className="text-sm font-bold text-slate-900">Your Supplier Depot on Google Maps</h4>
@@ -368,12 +368,12 @@ export default function SupplierDashboard({
                 Schools discover your inventory and calculate route distances based on this pin.
               </p>
             </div>
-            <span className="text-xs font-semibold px-2.5 py-1 bg-sky-50 text-sky-700 rounded-xl border border-sky-200">
+            <span className="text-xs font-semibold px-2.5 py-1 bg-sky-50 text-sky-700 rounded-md border border-sky-200">
               {user.organization}
             </span>
           </div>
 
-          <div className="w-full h-80 rounded-2xl overflow-hidden border border-slate-200">
+          <div className="w-full h-80 rounded-lg overflow-hidden border border-slate-200">
             <APIProvider apiKey={apiKey}>
               <Map
                 internalUsageAttributionIds={['gmp_mcp_codeassist_v1_aistudio']}
@@ -400,12 +400,12 @@ export default function SupplierDashboard({
       {/* Add Product Modal */}
       {showAddModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/50 backdrop-blur-xs">
-          <div className="relative w-full max-w-md bg-white rounded-3xl p-6 shadow-2xl border border-sky-100">
+          <div className="relative w-full max-w-md bg-white rounded-xl p-6 shadow-2xl border border-sky-100">
             <div className="flex items-center justify-between pb-3 border-b border-slate-100">
               <h3 className="text-sm font-bold text-slate-900">Add New Catalog Item</h3>
               <button
                 onClick={() => setShowAddModal(false)}
-                className="p-1 rounded-xl text-slate-400 hover:text-slate-600"
+                className="p-1 rounded-md text-slate-400 hover:text-slate-600"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -420,7 +420,7 @@ export default function SupplierDashboard({
                   placeholder="e.g. Ergonomic Student Desks (Pack of 10)"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200 focus:outline-none focus:border-sky-500"
                 />
               </div>
 
@@ -430,7 +430,7 @@ export default function SupplierDashboard({
                   <select
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
-                    className="w-full px-2.5 py-2 rounded-xl border border-slate-200 bg-white"
+                    className="w-full px-2.5 py-2 rounded-md border border-slate-200 bg-white"
                   >
                     <option>Stationery &amp; Paper</option>
                     <option>Lab &amp; Science</option>
@@ -448,7 +448,7 @@ export default function SupplierDashboard({
                     placeholder="e.g. box of 50, unit"
                     value={unit}
                     onChange={(e) => setUnit(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                    className="w-full px-3 py-2 rounded-md border border-slate-200"
                   />
                 </div>
               </div>
@@ -463,7 +463,7 @@ export default function SupplierDashboard({
                     required
                     value={price}
                     onChange={(e) => setPrice(parseFloat(e.target.value) || 0)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                    className="w-full px-3 py-2 rounded-md border border-slate-200"
                   />
                 </div>
                 <div>
@@ -474,7 +474,7 @@ export default function SupplierDashboard({
                     required
                     value={moq}
                     onChange={(e) => setMoq(parseInt(e.target.value) || 1)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                    className="w-full px-3 py-2 rounded-md border border-slate-200"
                   />
                 </div>
                 <div>
@@ -485,7 +485,7 @@ export default function SupplierDashboard({
                     required
                     value={inStock}
                     onChange={(e) => setInStock(parseInt(e.target.value) || 0)}
-                    className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                    className="w-full px-3 py-2 rounded-md border border-slate-200"
                   />
                 </div>
               </div>
@@ -497,7 +497,7 @@ export default function SupplierDashboard({
                   min="1"
                   value={leadTimeDays}
                   onChange={(e) => setLeadTimeDays(parseInt(e.target.value) || 1)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200"
                 />
               </div>
 
@@ -508,7 +508,7 @@ export default function SupplierDashboard({
                   placeholder="Details, dimensions, compliance standards..."
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
-                  className="w-full px-3 py-2 rounded-xl border border-slate-200"
+                  className="w-full px-3 py-2 rounded-md border border-slate-200"
                 />
               </div>
 
@@ -516,13 +516,13 @@ export default function SupplierDashboard({
                 <button
                   type="button"
                   onClick={() => setShowAddModal(false)}
-                  className="py-2 px-3 rounded-xl border border-slate-200 text-slate-700 font-semibold"
+                  className="py-2 px-3 rounded-md border border-slate-200 text-slate-700 font-semibold"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="py-2 px-4 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-semibold shadow-xs"
+                  className="py-2 px-4 rounded-md bg-sky-600 hover:bg-sky-700 text-white font-semibold shadow-xs"
                 >
                   Publish Item
                 </button>

@@ -25,22 +25,11 @@ export default function Navbar({
             className="h-9 w-auto object-contain"
           />
           <div>
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-sm tracking-wider text-slate-900 uppercase">
-                Nerevana
-              </span>
-              <span
-                className={`text-[10px] font-semibold px-2 py-0.5 rounded-full ${
-                  user?.role === 'buyer'
-                    ? 'bg-sky-50 text-sky-700 border border-sky-200'
-                    : 'bg-blue-50 text-blue-700 border border-blue-200'
-                }`}
-              >
-                {user?.role === 'buyer' ? 'School Buyer' : 'Supplier Hub'}
-              </span>
-            </div>
+            <span className="font-extrabold text-sm tracking-wider text-slate-900 uppercase block leading-tight">
+              Nerevana
+            </span>
             {user && (
-              <p className="text-[10px] text-slate-500 truncate max-w-[160px] sm:max-w-xs">
+              <p className="text-[11px] text-slate-500 truncate max-w-[180px] sm:max-w-xs font-medium">
                 {user.organization}
               </p>
             )}
@@ -54,7 +43,7 @@ export default function Navbar({
             <button
               onClick={onSwitchRole}
               title="Switch between Buyer and Supplier mode"
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-slate-200 hover:border-sky-300 text-slate-700 hover:text-sky-700 text-xs font-medium transition-all bg-slate-50/50"
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-md border border-slate-200 hover:border-sky-300 text-slate-700 hover:text-sky-700 text-xs font-medium transition-all bg-slate-50/50"
             >
               <RefreshCw className="w-3.5 h-3.5 text-slate-500" />
               <span className="hidden sm:inline">
@@ -70,7 +59,7 @@ export default function Navbar({
               onClick={onSignOut}
               aria-label="Sign out"
               title="Sign Out"
-              className="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
+              className="p-1.5 rounded-md text-slate-400 hover:text-slate-600 hover:bg-slate-100 transition-colors"
             >
               <LogOut className="w-4 h-4" />
             </button>

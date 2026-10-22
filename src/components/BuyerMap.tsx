@@ -53,17 +53,17 @@ export default function BuyerMap({
   };
 
   return (
-    <div className="relative w-full h-full flex flex-col min-h-[480px] md:min-h-[580px] rounded-2xl overflow-hidden border border-sky-100 shadow-sm bg-white">
+    <div className="relative w-full h-full flex flex-col min-h-[480px] md:min-h-[580px] rounded-lg overflow-hidden border border-sky-100 shadow-sm bg-white">
       {/* Category filter pills floating on top of map */}
       <div className="absolute top-3 left-3 right-3 z-10 flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-none pointer-events-auto">
         {CATEGORIES.map((cat) => (
           <button
             key={cat}
             onClick={() => onSelectCategory(cat)}
-            className={`whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium backdrop-blur-md shadow-sm transition-all ${
+            className={`whitespace-nowrap px-3 py-1.5 rounded-md text-xs font-medium backdrop-blur-md shadow-xs transition-all ${
               selectedCategory === cat
-                ? 'bg-sky-600 text-white font-semibold shadow-sky-500/20'
-                : 'bg-white/90 text-slate-700 hover:bg-white border border-slate-200/80'
+                ? 'bg-sky-600 text-white font-semibold'
+                : 'bg-white/95 text-slate-700 hover:bg-white border border-slate-200/80'
             }`}
           >
             {cat}
@@ -89,10 +89,10 @@ export default function BuyerMap({
               title={`Your School: ${user.organization}`}
             >
               <div className="flex flex-col items-center">
-                <div className="bg-sky-600 text-white p-2 rounded-2xl shadow-lg ring-4 ring-sky-200">
+                <div className="bg-sky-600 text-white p-2 rounded-md shadow-md ring-2 ring-sky-200">
                   <MapPin className="w-4 h-4" />
                 </div>
-                <span className="text-[10px] font-bold bg-white text-slate-800 px-1.5 py-0.5 rounded shadow mt-1 whitespace-nowrap">
+                <span className="text-[10px] font-bold bg-white text-slate-800 px-1.5 py-0.5 rounded-xs shadow mt-1 whitespace-nowrap">
                   {user.organization || 'My School'}
                 </span>
               </div>
@@ -164,7 +164,7 @@ export default function BuyerMap({
                         onSelectSupplier(activeSupplier);
                         setActiveSupplier(null);
                       }}
-                      className="w-full py-1.5 px-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-xs font-semibold shadow-sm transition-colors flex items-center justify-center gap-1"
+                      className="w-full py-1.5 px-2 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors flex items-center justify-center gap-1"
                     >
                       <Package className="w-3 h-3" />
                       <span>View Catalog ({activeSupplier.itemCount})</span>
@@ -196,13 +196,13 @@ export default function BuyerMap({
               <div
                 key={supp.id}
                 onClick={() => onSelectSupplier(supp)}
-                className="flex-shrink-0 w-64 p-3 bg-white rounded-xl border border-slate-200/90 hover:border-sky-300 shadow-xs cursor-pointer transition-all hover:shadow-sm"
+                className="flex-shrink-0 w-64 p-3 bg-white rounded-md border border-slate-200/90 hover:border-sky-300 shadow-xs cursor-pointer transition-all hover:shadow-xs"
               >
                 <div className="flex items-start justify-between gap-1">
                   <h5 className="font-semibold text-xs text-slate-900 truncate">
                     {supp.organization}
                   </h5>
-                  <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded">
+                  <span className="text-[10px] font-bold text-sky-600 bg-sky-50 px-1.5 py-0.5 rounded-xs">
                     {distance} mi
                   </span>
                 </div>

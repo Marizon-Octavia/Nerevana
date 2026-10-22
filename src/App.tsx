@@ -194,12 +194,12 @@ export default function App() {
           /* BUYER PORTAL (SCHOOLS & INSTITUTIONS) */
           <div className="space-y-4">
             {/* View Switcher Bar for Buyers */}
-            <div className="flex items-center justify-between bg-white p-2.5 rounded-2xl border border-sky-100 shadow-xs">
+            <div className="flex items-center justify-between bg-white p-2 rounded-lg border border-sky-100 shadow-xs">
               <div className="flex items-center gap-1.5">
                 <button
                   type="button"
                   onClick={() => setBuyerView('map')}
-                  className={`py-2 px-3 sm:px-4 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  className={`py-2 px-3 sm:px-4 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
                     buyerView === 'map'
                       ? 'bg-sky-600 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -212,7 +212,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setBuyerView('catalog')}
-                  className={`py-2 px-3 sm:px-4 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  className={`py-2 px-3 sm:px-4 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
                     buyerView === 'catalog'
                       ? 'bg-sky-600 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -225,7 +225,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setBuyerView('orders')}
-                  className={`py-2 px-3 sm:px-4 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 ${
+                  className={`py-2 px-3 sm:px-4 rounded-md text-xs font-semibold transition-all flex items-center gap-1.5 ${
                     buyerView === 'orders'
                       ? 'bg-sky-600 text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
@@ -304,7 +304,7 @@ export default function App() {
         <div className="md:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/95 backdrop-blur-md border-t border-sky-100 py-1.5 px-4 flex items-center justify-around shadow-lg">
           <button
             onClick={() => setBuyerView('map')}
-            className={`flex flex-col items-center py-1 px-3 rounded-xl text-[10px] font-semibold transition-colors ${
+            className={`flex flex-col items-center py-1 px-3 rounded-md text-[10px] font-semibold transition-colors ${
               buyerView === 'map' ? 'text-sky-600' : 'text-slate-400'
             }`}
           >
@@ -313,7 +313,7 @@ export default function App() {
           </button>
           <button
             onClick={() => setBuyerView('catalog')}
-            className={`flex flex-col items-center py-1 px-3 rounded-xl text-[10px] font-semibold transition-colors ${
+            className={`flex flex-col items-center py-1 px-3 rounded-md text-[10px] font-semibold transition-colors ${
               buyerView === 'catalog' ? 'text-sky-600' : 'text-slate-400'
             }`}
           >
@@ -322,7 +322,7 @@ export default function App() {
           </button>
           <button
             onClick={() => setBuyerView('orders')}
-            className={`flex flex-col items-center py-1 px-3 rounded-xl text-[10px] font-semibold transition-colors ${
+            className={`flex flex-col items-center py-1 px-3 rounded-md text-[10px] font-semibold transition-colors ${
               buyerView === 'orders' ? 'text-sky-600' : 'text-slate-400'
             }`}
           >

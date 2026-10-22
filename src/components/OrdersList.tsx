@@ -95,7 +95,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
           <button
             key={st}
             onClick={() => setFilter(st)}
-            className={`whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium capitalize transition-all ${
+            className={`whitespace-nowrap px-3 py-1.5 rounded-md text-xs font-medium capitalize transition-all ${
               filter === st
                 ? 'bg-sky-600 text-white font-semibold shadow-xs'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-50'
@@ -108,7 +108,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
 
       {/* Orders List */}
       {filteredOrders.length === 0 ? (
-        <div className="bg-white p-8 rounded-2xl border border-slate-200 text-center">
+        <div className="bg-white p-8 rounded-lg border border-slate-200 text-center">
           <Truck className="w-8 h-8 text-slate-300 mx-auto mb-2" />
           <h4 className="text-sm font-semibold text-slate-700">No orders found</h4>
           <p className="text-xs text-slate-400 mt-1">
@@ -126,7 +126,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
             return (
               <div
                 key={order.id}
-                className="bg-white p-4 sm:p-5 rounded-2xl border border-sky-100 shadow-xs hover:border-sky-200 transition-all"
+                className="bg-white p-4 sm:p-5 rounded-lg border border-sky-100 shadow-xs hover:border-sky-200 transition-all"
               >
                 {/* Header row */}
                 <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-slate-100">
@@ -142,7 +142,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
 
                   {/* Status Badge */}
                   <div
-                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl text-[11px] font-semibold border ${cfg.bg} ${cfg.text} ${cfg.border}`}
+                    className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold border ${cfg.bg} ${cfg.text} ${cfg.border}`}
                   >
                     <StatusIcon className="w-3.5 h-3.5" />
                     <span>{cfg.label}</span>
@@ -175,7 +175,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                     </div>
 
                     {order.deliveryNotes && (
-                      <p className="mt-2 text-[11px] text-slate-600 bg-slate-50 p-2 rounded-lg border border-slate-200/60">
+                      <p className="mt-2 text-[11px] text-slate-600 bg-slate-50 p-2 rounded-md border border-slate-200/60">
                         <strong className="text-slate-700">Instructions:</strong> {order.deliveryNotes}
                       </p>
                     )}
@@ -200,7 +200,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                             type="button"
                             onClick={() => handleStatusChange(order.id, 'confirmed')}
                             disabled={processingId === order.id}
-                            className="py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors"
+                            className="py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors"
                           >
                             Accept &amp; Confirm
                           </button>
@@ -208,7 +208,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                             type="button"
                             onClick={() => handleStatusChange(order.id, 'cancelled')}
                             disabled={processingId === order.id}
-                            className="py-1.5 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition-colors"
+                            className="py-1.5 px-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-md text-xs font-medium transition-colors"
                           >
                             Decline
                           </button>
@@ -220,7 +220,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                           type="button"
                           onClick={() => handleStatusChange(order.id, 'dispatched')}
                           disabled={processingId === order.id}
-                          className="py-1.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
+                          className="py-1.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
                         >
                           <Truck className="w-3.5 h-3.5" />
                           <span>Dispatch Shipment</span>
@@ -232,7 +232,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                           type="button"
                           onClick={() => handleStatusChange(order.id, 'delivered')}
                           disabled={processingId === order.id}
-                          className="py-1.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
+                          className="py-1.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
                         >
                           <CheckCircle className="w-3.5 h-3.5" />
                           <span>Mark Delivered</span>
@@ -244,7 +244,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                           type="button"
                           onClick={() => handleStatusChange(order.id, 'cancelled')}
                           disabled={processingId === order.id}
-                          className="py-1.5 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-xl text-xs font-semibold transition-colors"
+                          className="py-1.5 px-3 bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 rounded-md text-xs font-semibold transition-colors"
                         >
                           Cancel PO
                         </button>
@@ -255,7 +255,7 @@ export default function OrdersList({ orders, user, onUpdateOrderStatus }: Orders
                           type="button"
                           onClick={() => handleStatusChange(order.id, 'delivered')}
                           disabled={processingId === order.id}
-                          className="py-1.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
+                          className="py-1.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
                         >
                           <PackageCheck className="w-3.5 h-3.5" />
                           <span>Confirm Delivery Receipt</span>

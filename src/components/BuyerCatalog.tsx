@@ -77,7 +77,7 @@ export default function BuyerCatalog({
   return (
     <div className="w-full space-y-4">
       {/* Top Filter & Search Toolbar */}
-      <div className="bg-white p-4 rounded-2xl border border-sky-100 shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
+      <div className="bg-white p-3.5 rounded-lg border border-sky-100 shadow-xs flex flex-col md:flex-row gap-3 items-stretch md:items-center justify-between">
         {/* Search */}
         <div className="relative flex-1">
           <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -86,17 +86,17 @@ export default function BuyerCatalog({
             placeholder="Search items, equipment, supplies or vendor..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2 text-xs rounded-xl border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
+            className="w-full pl-9 pr-4 py-2 text-xs rounded-md border border-slate-200 focus:outline-none focus:border-sky-500 bg-slate-50/50"
           />
         </div>
 
         {/* Supplier Filter Badge if active */}
         {filterSupplierOrg && (
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 border border-sky-200 rounded-xl text-xs text-sky-800 font-medium">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 border border-sky-200 rounded-md text-xs text-sky-800 font-medium">
             <span>Filtered by: {filterSupplierOrg}</span>
             <button
               onClick={onClearSupplierFilter}
-              className="p-0.5 hover:bg-sky-200/50 rounded-full"
+              className="p-0.5 hover:bg-sky-200/50 rounded-xs"
               title="Clear vendor filter"
             >
               <X className="w-3.5 h-3.5" />
@@ -109,7 +109,7 @@ export default function BuyerCatalog({
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value as 'popular' | 'price-asc' | 'price-desc')}
-            className="px-3 py-2 text-xs rounded-xl border border-slate-200 bg-white text-slate-700 font-medium focus:outline-none focus:border-sky-400"
+            className="px-3 py-2 text-xs rounded-md border border-slate-200 bg-white text-slate-700 font-medium focus:outline-none focus:border-sky-400"
           >
             <option value="popular">Top Rated</option>
             <option value="price-asc">Price: Low to High</option>
@@ -117,11 +117,11 @@ export default function BuyerCatalog({
           </select>
 
           {/* Table / Grid switcher (for laptops & tablets) */}
-          <div className="hidden sm:flex items-center p-1 bg-slate-100 rounded-xl border border-slate-200">
+          <div className="hidden sm:flex items-center p-1 bg-slate-100 rounded-md border border-slate-200">
             <button
               onClick={() => setViewMode('table')}
               title="Detailed Table View"
-              className={`p-1.5 rounded-lg text-xs transition-colors ${
+              className={`p-1.5 rounded-sm text-xs transition-colors ${
                 viewMode === 'table' ? 'bg-white text-sky-700 shadow-xs' : 'text-slate-500'
               }`}
             >
@@ -130,7 +130,7 @@ export default function BuyerCatalog({
             <button
               onClick={() => setViewMode('grid')}
               title="Card Grid View"
-              className={`p-1.5 rounded-lg text-xs transition-colors ${
+              className={`p-1.5 rounded-sm text-xs transition-colors ${
                 viewMode === 'grid' ? 'bg-white text-sky-700 shadow-xs' : 'text-slate-500'
               }`}
             >
@@ -146,7 +146,7 @@ export default function BuyerCatalog({
           <button
             key={cat}
             onClick={() => onSelectCategory(cat)}
-            className={`whitespace-nowrap px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
+            className={`whitespace-nowrap px-3 py-1.5 rounded-md text-xs font-medium transition-all ${
               selectedCategory === cat
                 ? 'bg-sky-600 text-white font-semibold shadow-xs'
                 : 'bg-white text-slate-600 hover:text-slate-900 border border-slate-200/80 hover:bg-slate-50'
@@ -159,14 +159,14 @@ export default function BuyerCatalog({
 
       {/* Empty State */}
       {filteredProducts.length === 0 ? (
-        <div className="bg-white p-8 rounded-2xl border border-slate-200 text-center">
+        <div className="bg-white p-8 rounded-lg border border-slate-200 text-center">
           <Package className="w-8 h-8 text-slate-300 mx-auto mb-2" />
           <h4 className="text-sm font-semibold text-slate-700">No products match your criteria</h4>
           <p className="text-xs text-slate-400 mt-1">Try relaxing your search terms or category selection.</p>
         </div>
       ) : viewMode === 'table' ? (
         /* TABLE VIEW (Optimal for procurement officers on tablets/laptops) */
-        <div className="bg-white rounded-2xl border border-sky-100 shadow-xs overflow-hidden">
+        <div className="bg-white rounded-lg border border-sky-100 shadow-xs overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
@@ -227,7 +227,7 @@ export default function BuyerCatalog({
                         <button
                           type="button"
                           onClick={() => onInitiateOrder(item)}
-                          className="inline-flex items-center gap-1.5 py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors"
+                          className="inline-flex items-center gap-1.5 py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors"
                         >
                           <ShoppingCart className="w-3.5 h-3.5" />
                           <span>Order</span>
@@ -252,7 +252,7 @@ export default function BuyerCatalog({
             return (
               <div
                 key={item.id}
-                className="bg-white p-4 rounded-2xl border border-sky-100 hover:border-sky-300 shadow-xs hover:shadow-sm transition-all flex flex-col justify-between"
+                className="bg-white p-4 rounded-lg border border-sky-100 hover:border-sky-300 shadow-xs hover:shadow-sm transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-start justify-between gap-2 mb-1.5">
@@ -298,7 +298,7 @@ export default function BuyerCatalog({
                   <button
                     type="button"
                     onClick={() => onInitiateOrder(item)}
-                    className="py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-xl text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
+                    className="py-1.5 px-3 bg-sky-600 hover:bg-sky-700 text-white rounded-md text-xs font-semibold shadow-xs transition-colors flex items-center gap-1.5"
                   >
                     <ShoppingCart className="w-3.5 h-3.5" />
                     <span>Order</span>
