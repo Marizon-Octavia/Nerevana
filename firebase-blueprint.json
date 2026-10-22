@@ -1,0 +1,110 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with role, school or company affiliation, and contact details",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["buyer", "supplier"] },
+        "organization": { "type": "string", "maxLength": 150 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "address": { "type": "string", "maxLength": 200 },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "email", "name", "role", "organization"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Procurement item or supply catalog entry offered by a vendor",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "supplierId": { "type": "string", "maxLength": 128 },
+        "supplierName": { "type": "string", "maxLength": 100 },
+        "supplierOrg": { "type": "string", "maxLength": 150 },
+        "supplierLocation": { "type": "string", "maxLength": 200 },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "title": { "type": "string", "maxLength": 150 },
+        "category": { "type": "string", "maxLength": 80 },
+        "description": { "type": "string", "maxLength": 500 },
+        "unit": { "type": "string", "maxLength": 50 },
+        "price": { "type": "number" },
+        "moq": { "type": "number" },
+        "inStock": { "type": "number" },
+        "leadTimeDays": { "type": "number" },
+        "rating": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["supplierId", "title", "category", "price", "unit"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Procurement purchase order submitted by a school or institution",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "buyerId": { "type": "string", "maxLength": 128 },
+        "buyerName": { "type": "string", "maxLength": 100 },
+        "buyerOrg": { "type": "string", "maxLength": 150 },
+        "buyerAddress": { "type": "string", "maxLength": 200 },
+        "supplierId": { "type": "string", "maxLength": 128 },
+        "supplierName": { "type": "string", "maxLength": 100 },
+        "productId": { "type": "string", "maxLength": 128 },
+        "productTitle": { "type": "string", "maxLength": 150 },
+        "quantity": { "type": "number" },
+        "unitPrice": { "type": "number" },
+        "totalAmount": { "type": "number" },
+        "deliveryNotes": { "type": "string", "maxLength": 300 },
+        "status": { "type": "string", "enum": ["pending", "confirmed", "dispatched", "delivered", "cancelled"] },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["buyerId", "supplierId", "productId", "quantity", "totalAmount", "status"]
+    },
+    "Supplier": {
+      "title": "Supplier",
+      "description": "Verified supplier directory profile with geolocation and campus service zones",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 128 },
+        "name": { "type": "string", "maxLength": 100 },
+        "organization": { "type": "string", "maxLength": 150 },
+        "address": { "type": "string", "maxLength": 200 },
+        "lat": { "type": "number" },
+        "lng": { "type": "number" },
+        "categories": { "type": "array" },
+        "phone": { "type": "string", "maxLength": 30 },
+        "email": { "type": "string", "maxLength": 128 },
+        "verified": { "type": "boolean" },
+        "rating": { "type": "number" },
+        "itemCount": { "type": "number" }
+      },
+      "required": ["name", "organization", "lat", "lng"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "User accounts with roles and school/vendor details"
+    },
+    "/products/{productId}": {
+      "schema": "Product",
+      "description": "Catalog of supplies available for institutional procurement"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Procurement orders between schools and vendors"
+    },
+    "/suppliers/{supplierId}": {
+      "schema": "Supplier",
+      "description": "Supplier directory listing for map and geographic discovery"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "EduSupply Direct - School & Supplier Procurement",
+  "description": "Mobile-first procurement portal connecting educational institutions with local verified suppliers via Google Maps and real-time orders.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

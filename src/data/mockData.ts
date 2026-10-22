@@ -1,0 +1,277 @@
+export interface SupplierProfile {
+  id: string;
+  name: string;
+  organization: string;
+  address: string;
+  lat: number;
+  lng: number;
+  categories: string[];
+  phone: string;
+  email: string;
+  verified: boolean;
+  rating: number;
+  itemCount: number;
+  deliveryTime: string;
+}
+
+export interface CatalogItem {
+  id: string;
+  supplierId: string;
+  supplierName: string;
+  supplierOrg: string;
+  supplierLocation: string;
+  lat: number;
+  lng: number;
+  title: string;
+  category: string;
+  description: string;
+  unit: string;
+  price: number;
+  moq: number;
+  inStock: number;
+  leadTimeDays: number;
+  rating: number;
+}
+
+export const INITIAL_SUPPLIERS: SupplierProfile[] = [
+  {
+    id: 'supp_apex',
+    name: 'Marcus Vance',
+    organization: 'Apex STEM & Stationery Wholesale',
+    address: '420 Commercial Blvd, Long Island City, NY',
+    lat: 40.745,
+    lng: -73.948,
+    categories: ['Stationery & Paper', 'Lab & Science'],
+    phone: '+1 (718) 555-0142',
+    email: 'procurement@apexedu.com',
+    verified: true,
+    rating: 4.9,
+    itemCount: 14,
+    deliveryTime: '1-2 business days',
+  },
+  {
+    id: 'supp_biolab',
+    name: 'Dr. Elena Rostova',
+    organization: 'BioSci Academic Laboratory Gear',
+    address: '18 Hudson Square, New York, NY',
+    lat: 40.726,
+    lng: -74.008,
+    categories: ['Lab & Science', 'Facility & Safety'],
+    phone: '+1 (212) 555-0198',
+    email: 'orders@biosci-academic.com',
+    verified: true,
+    rating: 4.8,
+    itemCount: 8,
+    deliveryTime: '2-4 business days',
+  },
+  {
+    id: 'supp_techdirect',
+    name: 'David Chen',
+    organization: 'Classroom TechDirect Solutions',
+    address: '1540 Broadway, Midtown Manhattan, NY',
+    lat: 40.758,
+    lng: -73.985,
+    categories: ['Classroom Tech', 'Stationery & Paper'],
+    phone: '+1 (212) 555-0321',
+    email: 'b2b@classroomtechdirect.com',
+    verified: true,
+    rating: 4.9,
+    itemCount: 12,
+    deliveryTime: 'Next day delivery',
+  },
+  {
+    id: 'supp_pureclean',
+    name: 'Rosa Mendez',
+    organization: 'CleanCampus Institutional Supplies',
+    address: '780 Atlantic Ave, Brooklyn, NY',
+    lat: 40.684,
+    lng: -73.972,
+    categories: ['Facility & Safety', 'Cafeteria'],
+    phone: '+1 (718) 555-0812',
+    email: 'supply@cleancampus.org',
+    verified: true,
+    rating: 4.7,
+    itemCount: 9,
+    deliveryTime: '1-3 business days',
+  },
+  {
+    id: 'supp_varsity',
+    name: 'Coach Jordan Miller',
+    organization: 'Varsity Athletics & Gym Depot',
+    address: '220 E 42nd St, New York, NY',
+    lat: 40.750,
+    lng: -73.974,
+    categories: ['Sports & Physical Ed'],
+    phone: '+1 (212) 555-0674',
+    email: 'procurement@varsitygymdepot.com',
+    verified: true,
+    rating: 4.8,
+    itemCount: 7,
+    deliveryTime: '2-3 business days',
+  },
+];
+
+export const INITIAL_PRODUCTS: CatalogItem[] = [
+  {
+    id: 'prod_1',
+    supplierId: 'supp_apex',
+    supplierName: 'Marcus Vance',
+    supplierOrg: 'Apex STEM & Stationery Wholesale',
+    supplierLocation: 'Long Island City, NY',
+    lat: 40.745,
+    lng: -73.948,
+    title: 'Recycled College-Ruled Notebooks (Box of 50)',
+    category: 'Stationery & Paper',
+    description: '100% post-consumer recycled paper, heavy-duty coil binding, micro-perforated sheets.',
+    unit: 'box of 50',
+    price: 48.0,
+    moq: 2,
+    inStock: 350,
+    leadTimeDays: 2,
+    rating: 4.9,
+  },
+  {
+    id: 'prod_2',
+    supplierId: 'supp_apex',
+    supplierName: 'Marcus Vance',
+    supplierOrg: 'Apex STEM & Stationery Wholesale',
+    supplierLocation: 'Long Island City, NY',
+    lat: 40.745,
+    lng: -73.948,
+    title: 'Ergonomic Whiteboard Dry-Erase Markers (Pack of 72)',
+    category: 'Stationery & Paper',
+    description: 'Low-odor chisel tip markers in assorted teacher colors with magnetic eraser caps.',
+    unit: 'pack of 72',
+    price: 34.5,
+    moq: 1,
+    inStock: 520,
+    leadTimeDays: 1,
+    rating: 4.8,
+  },
+  {
+    id: 'prod_3',
+    supplierId: 'supp_biolab',
+    supplierName: 'Dr. Elena Rostova',
+    supplierOrg: 'BioSci Academic Laboratory Gear',
+    supplierLocation: 'Hudson Square, NY',
+    lat: 40.726,
+    lng: -74.008,
+    title: 'Compound Monocular Student Microscope 1000x',
+    category: 'Lab & Science',
+    description: 'High-grade optical glass lenses, built-in LED illumination, rechargeable battery for flexible lab benches.',
+    unit: 'unit',
+    price: 185.0,
+    moq: 1,
+    inStock: 45,
+    leadTimeDays: 3,
+    rating: 4.9,
+  },
+  {
+    id: 'prod_4',
+    supplierId: 'supp_biolab',
+    supplierName: 'Dr. Elena Rostova',
+    supplierOrg: 'BioSci Academic Laboratory Gear',
+    supplierLocation: 'Hudson Square, NY',
+    lat: 40.726,
+    lng: -74.008,
+    title: 'Borosilicate Glass Beakers & Flasks Set (24 Pcs)',
+    category: 'Lab & Science',
+    description: 'Thermal shock resistant, graduated cylinders, Erlenmeyer flasks and beakers for chemistry classes.',
+    unit: 'set of 24',
+    price: 76.0,
+    moq: 2,
+    inStock: 110,
+    leadTimeDays: 2,
+    rating: 4.7,
+  },
+  {
+    id: 'prod_5',
+    supplierId: 'supp_techdirect',
+    supplierName: 'David Chen',
+    supplierOrg: 'Classroom TechDirect Solutions',
+    supplierLocation: 'Midtown Manhattan, NY',
+    lat: 40.758,
+    lng: -73.985,
+    title: 'Multi-Device 32-Bay Chromebook Charging Cart',
+    category: 'Classroom Tech',
+    description: 'Smart power management system, key lock security, non-marking swivel wheels, surge-protected.',
+    unit: 'unit',
+    price: 640.0,
+    moq: 1,
+    inStock: 18,
+    leadTimeDays: 2,
+    rating: 5.0,
+  },
+  {
+    id: 'prod_6',
+    supplierId: 'supp_techdirect',
+    supplierName: 'David Chen',
+    supplierOrg: 'Classroom TechDirect Solutions',
+    supplierLocation: 'Midtown Manhattan, NY',
+    lat: 40.758,
+    lng: -73.985,
+    title: 'Classroom Noise-Cancelling Student Headsets (Case of 20)',
+    category: 'Classroom Tech',
+    description: 'Chew-resistant braided cord, universal 3.5mm and USB-C adapters, padded washable ear cushions.',
+    unit: 'case of 20',
+    price: 145.0,
+    moq: 1,
+    inStock: 240,
+    leadTimeDays: 1,
+    rating: 4.8,
+  },
+  {
+    id: 'prod_7',
+    supplierId: 'supp_pureclean',
+    supplierName: 'Rosa Mendez',
+    supplierOrg: 'CleanCampus Institutional Supplies',
+    supplierLocation: 'Atlantic Ave Brooklyn, NY',
+    lat: 40.684,
+    lng: -73.972,
+    title: 'Hospital-Grade Touchless Sanitizer Stations (Pack of 4)',
+    category: 'Facility & Safety',
+    description: 'Sturdy steel pedestal stand with refillable 1000ml reservoir and infrared sensor.',
+    unit: 'pack of 4',
+    price: 160.0,
+    moq: 1,
+    inStock: 80,
+    leadTimeDays: 2,
+    rating: 4.9,
+  },
+  {
+    id: 'prod_8',
+    supplierId: 'supp_pureclean',
+    supplierName: 'Rosa Mendez',
+    supplierOrg: 'CleanCampus Institutional Supplies',
+    supplierLocation: 'Atlantic Ave Brooklyn, NY',
+    lat: 40.684,
+    lng: -73.972,
+    title: 'Eco-Friendly Compostable Cafeteria Trays (1,000 count)',
+    category: 'Cafeteria',
+    description: '5-compartment sugarcane fiber trays, 100% biodegradable, microwavable and grease-resistant.',
+    unit: 'box of 1,000',
+    price: 92.0,
+    moq: 3,
+    inStock: 400,
+    leadTimeDays: 3,
+    rating: 4.6,
+  },
+  {
+    id: 'prod_9',
+    supplierId: 'supp_varsity',
+    supplierName: 'Coach Jordan Miller',
+    supplierOrg: 'Varsity Athletics & Gym Depot',
+    supplierLocation: 'Herald Square, NY',
+    lat: 40.750,
+    lng: -73.974,
+    title: 'Durable Indoor/Outdoor Synthetic Basketballs (Pack of 12)',
+    category: 'Sports & Physical Ed',
+    description: 'Official size 7 composite leather with heavy-duty mesh carrying duffel bag and hand pump.',
+    unit: 'pack of 12',
+    price: 130.0,
+    moq: 1,
+    inStock: 95,
+    leadTimeDays: 2,
+    rating: 4.8,
+  },
+];
